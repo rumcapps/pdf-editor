@@ -1,0 +1,4 @@
+Flask==2.0.1
+PyPDF2==1.26.0
+python-pptx==0.6.19
+Flask-CORS==3.0.10
