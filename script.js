@@ -16,13 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: formData,
                 });
 
-                const data = await response.json();
-
-                if (data.success) {
-                    downloadLink.href = data.pptxFile;
-                    downloadLink.style.display = 'block';
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.success) {
+                        downloadLink.href = data.pptxFile;
+                        downloadLink.style.display = 'block';
+                    } else {
+                        console.error('PPT conversion failed:', data.error);
+                    }
                 } else {
-                    console.error('PPT conversion failed:', data.error);
+                    console.error('Server returned an error:', response.status);
                 }
             } catch (error) {
                 console.error('Error:', error);
