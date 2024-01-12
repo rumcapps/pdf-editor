@@ -1,0 +1,14 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+
+#pdfInput {
+    margin-right: 10px;
+}
+
+#convertButton {
+    padding: 10px;
+}
