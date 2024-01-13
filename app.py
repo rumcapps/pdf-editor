@@ -14,11 +14,15 @@ def convert_pdf_to_pptx():
         pdf_path = 'uploaded_file.pdf'
         pdf_file.save(pdf_path)
 
+        app.logger.info(f"File received: {pdf_path}")
+
         # Simplified logic to test PowerPoint conversion
+        app.logger.info("Starting PowerPoint conversion...")
         presentation = Presentation()
         slide = presentation.slides.add_slide(presentation.slide_layouts[0])
         title = slide.shapes.title
         title.text = "Hello, this is a test slide!"
+        app.logger.info("PowerPoint conversion successful.")
 
         pptx_output = BytesIO()
         presentation.save(pptx_output)
