@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, render_template
 from flask_cors import CORS
 from pdf_text_extractor import extract_text_from_pdf
 from pptx import Presentation
@@ -7,6 +7,10 @@ from io import BytesIO
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/api/convert', methods=['POST'])
 def convert_pdf_to_pptx():
