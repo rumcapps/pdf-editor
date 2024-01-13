@@ -1,0 +1,17 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>PDF to PPTX Converter</title>
+</head>
+<body>
+    <input type="file" id="pdfInput" accept=".pdf">
+    <button id="convertButton">Convert</button>
+    <a id="downloadLink" style="display: none" download="output.pptx">Download PPTX</a>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
