@@ -18,21 +18,18 @@ def convert_pdf_to_pptx():
         pdf_file = request.files['pdf']
         pdf_path = 'uploaded_file.pdf'
         pdf_file.save(pdf_path)
-        extracted_text = extract_text_from_pdf(pdf_path)
 
-        # Placeholder logic to convert extracted text to PowerPoint
+        app.logger.info(f"File received: {pdf_path}")
+
+        # Simplified logic to test PowerPoint conversion
         presentation = Presentation()
         slide = presentation.slides.add_slide(presentation.slide_layouts[0])
         title = slide.shapes.title
-        title.text = extracted_text
+        title.text = "Hello, this is a test slide!"
 
         pptx_output = BytesIO()
         presentation.save(pptx_output)
         pptx_output.seek(0)
-
-        # Remove the local PDF file after extraction
-        # Uncomment the line below if you want to delete the PDF file
-        # os.remove(pdf_path)
 
         return send_file(pptx_output, as_attachment=True, download_name='output.pptx')
 
